@@ -69,7 +69,7 @@ class DanqBeigeButtons extends HTMLElement {
         --label-separation: 6px;
         --right-margin: 40px;
         --led-width: 25px;
-        --led-color: green;
+        --led-color: lightgreen;
       }
 
       #beige {
