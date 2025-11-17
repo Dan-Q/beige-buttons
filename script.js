@@ -77,6 +77,8 @@ class DanqBeigeButtons extends HTMLElement {
         width: 100%;
         font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
         font-weight: normal;
+        line-height: 22px;
+        letter-spacing: 1px;
         text-decoration: none;
         color: black;
         grid-template: var(--header-height) var(--stripe-height) var(--footer-height) /
