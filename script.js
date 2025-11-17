@@ -86,6 +86,7 @@ class DanqBeigeButtons extends HTMLElement {
         gap: 4px;
         border: 4px solid var(--border-color);
         background: var(--background-color);
+        overflow: hidden;
       }
 
       #stripe {
