@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beige Buttons</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+      font-weight: normal;
+      font-size: 22px;
+      background: #ede4f5 url('bg.webp') repeat;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: min-content auto min-content
+    }
+
+    header, main, footer {
+      padding: 12px;
+    }
+
+    header {
+      background: linear-gradient(#570909, #3c0000);
+      color: white;
+      box-shadow: 0px 4px 4px white;
+    }
+
+    h1 {
+      font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
+      text-align: center;
+      margin: 0;
+    }
+
+    h2 {
+      text-decoration: 2px wavy rgb(230, 94, 53) underline;
+      margin: 22px 0;
+    }
+
+    a {
+      color: #007b13;
+    }
+
+    main li {
+      margin: 20px 0;
+    }
+
+    code {
+      font-family: monospace;
+      background: #181818;
+      color: rgb(118, 226, 118);
+      font-size: 16px;
+      line-height: 22px;
+      display: inline-block;
+    }
+
+    section {
+      border: 4px dashed #1a8aae;
+      padding: 12px;
+      margin: 24px auto;
+      max-width: 1200px;
+    }
+
+    footer {
+      background: #d7d1dd;
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 24px;
+        justify-content: space-around;
+      }
+    }
+  </style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="description" content="A web component homage to the physical design and function of the turbo button, and the reset button that was so-often found alongside it.">
+  <meta property="og:title" content="Beige Buttons">
+  <meta property="og:description" content="A web component homage to the physical design and function of the turbo button, and the reset button that was so-often found alongside it.">
+  <meta property="og:url" content="https://beige-buttons.danq.dev/">
+  <meta property="og:image" content="https://beige-buttons.danq.dev/og.png">
+  <meta property="og:image:alt" content="Beige PC case showing Reset and Turbo buttons">
+  <meta property="og:type" content="website">
+</head>
+<body>
+  <header>
+    <h1>Beige Buttons</h1>
+  </header>
+
+  <main>
+    <p>
+      Bring some 1990 back into your life with a classic beige IBM PC button panel, complete with working reset
+      and turbo buttons!
+    </p>
+
+    <section>
+      <h2>Demo</h2>
+
+      <div style="max-width: 640px; margin: 12px auto;">
+        <danq-beige-buttons />
+      </div>
+    </section>
+
+    <section>
+      <h2>How to use</h2>
+
+      <ol>
+        <li>
+          <strong>Include the JavaScript file:</strong><br>
+          <code>&lt;script type="module" src="//beige-buttons.danq.dev/script.js"&gt;&lt;/script&gt;</code>
+        </li>
+        <li>
+          <strong>Put the component anywhere you want it:</strong><br>
+          <code>&lt;danq-beige-buttons /&gt;</code>
+        </li>
+        <li>
+          <strong>That's all!</strong>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Advanced usage</h2>
+
+      <ul>
+        <li>
+          The panel will fill the available width. To make it narrower, put it inside a container with a specified width:<br>
+          <code>&lt;div style="width: 400px;"&gt;&lt;danq-beige-buttons /&gt;&lt;/div&gt;</code>
+        </li>
+        <li>
+          The turbo button defaults to <strong>ON</strong>.<br>
+          Default to off with <code>&lt;danq-beige-buttons turbo="false" /&gt;</code>
+        </li>
+        <li>
+          The turbo button doesn't do anything, by default, but you can write your own functionality. Make your website run
+          slower when turbo is disabled, for example!
+        </li>
+        <li>
+          Check whether turbo is enabled with e.g.:<br>
+          <code>document.querySelector('danq-beige-buttons').isTurbo()</code>
+        </li>
+        <li>
+          Externally change state of turbo with e.g.:<br>
+          <code>document.querySelector('danq-beige-buttons').setAttribute('turbo', 'false');</code>
+        </li>
+        <li>
+          Listen for turbo toggles with e.g.<br>
+          <code>addEventListener('danq-beige-buttons:turbo-toggled', e=>console.log('Turbo enabled?', e.detail.turbo));</code>
+        </li>
+        <li>
+          Listen for reset presses with e.g.<br>
+          <code>addEventListener('danq-beige-buttons:reset-pressed', ()=>console.log('Reset was pressed.'));</code>
+        </li>
+        <li>
+          You can change the look-and-feed by overriding the CSS variables defined in the source code, e.g.<br>
+          <code>&lt;danq-beige-buttons style="--led-color: #22e;" /&gt;</code>
+        </li>
+        <li>
+          Prefer to selfhost? The JS file is self-contained: just download it onto your own server and load it from there,
+          being sure to use the <code>type="module"</code> attribute to your <code>&lt;script&gt;</code> tag.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>About</h2>
+
+      <p>
+        In the 1980s through early 1990s, PC clock speeds took several leaps forward. Unfortunately, some older software
+        - especially games - used the clock speed as a timing mechanism. This meant that if you ran a game designed to run
+        on a 16MHz processor on a 33MHz processor, it could run impossibly fast.
+      </p>
+      <p>
+        The "turbo" button found on computers of this era was in reality a "slow down" button. Switching <em>off</em> the turbo
+        would instruct the processor to run at a slower speed (often half speed), enabling older software to work as it ought
+        to.
+      </p>
+      <p>
+        As PCs became more-powerful, software developers migrated to using the computer's real-time clock as a timing mechanism,
+        independently of the execution speed of the processor. By the early 1990s, the turbo button was a curiosity for many
+        users, who didn't need it or understand why it existed. However, turbo buttons continued to be installed on some new
+        computers even towards the end of the decade.
+      </p>
+      <p>
+        This web component is an homage to the physical design and function of the turbo button, and the reset button that was
+        so-often found alongside it. The design was inspired by
+        <a href="https://commons.wikimedia.org/wiki/File:PC-Front_Turbotaste_IMGP5528_smial_wp.jpg">this photo</a>.
+      </p>
+      <p>
+        It was made by <a href="https://www.danq.me/">Dan Q</a> and all the
+        <a href="https://github.com/dan-q/beige-buttons">source code</a> is released into the public domain.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li>
+        <a href="https://www.danq.me/">
+          <img width="88" height="31" src="https://danq.me/_q26t/badges/dan-q-88x31-lighter.gif" alt="Made by Dan Q">
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/dan-q/beige-buttons">
+          <img width="88" height="31" src="github.png" alt="View source on GitHub">
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
