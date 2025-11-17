@@ -62,10 +62,10 @@ class DanqBeigeButtons extends HTMLElement {
         --background-color: #efeadc;
         --stripe-color: #c7b9a6;
         --header-height: 60px;
-        --stripe-height: 50px;
+        --stripe-height: 60px;
         --footer-height: 30px;
-        --button-width: 100px;
-        --button-separation: 10px;
+        --button-width: 129px;
+        --button-separation: 9px;
         --label-separation: 6px;
         --right-margin: 40px;
         --led-width: 25px;
